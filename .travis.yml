@@ -21,6 +21,12 @@ script:
   - docker run -e CI=true ethancollins/react-test npm run test
 
 deploy:
+  # Build script
+  provider: script
+  script: bash ./build.sh
+  on:
+    branch: master
+  # Deploy script
   provider: script
   script: bash ./deploy.sh
   on:
